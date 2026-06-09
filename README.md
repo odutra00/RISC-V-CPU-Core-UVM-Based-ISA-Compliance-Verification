@@ -183,9 +183,6 @@ project/
 │   │
 │   └── trace_pushBack.log
 │       Saída - Trace convertido para formato C++ (trace.push_back) para UVM/DPI
-├── docs
-│   ├── LICENSE
-│   └── README.md
 ├── dv
 │   ├── dpi
 │   │   ├── spike_dpi.cc
@@ -214,67 +211,9 @@ project/
 │
 ├── hw
 │   └── rtl - arquivos que implementam seu projeto
-│       ├── alu.v
-│       │   Entrada - Unidade Aritmética e Lógica (ALU do processador)
 │       │
-│       ├── aludec.v
-│       │   Entrada - Decodificador de controle da ALU
-│       │
-│       ├── branchControl.v
-│       │   Entrada - Lógica de controle de desvios (branch/jump)
-│       │
-│       ├── control.v
-│       │   Entrada - Unidade de controle principal (gera sinais de controle)
-│       │
-│       ├── cpu.v
-│       │   Entrada - Top-level do core RISC-V (CPU principal)
-│       │
-│       ├── cpu_TB.v
-│       │   Entrada - Testbench básico da CPU (sem UVM)
-│       │
-│       ├── cpu_wrapper.v
-│       │   Entrada - Wrapper do CPU para integração com ambiente UVM/DPI
-│       │
-│       ├── cpu_wrapper.sv
-│       │   Entrada - Versão SystemVerilog do wrapper (interface UVM/DPI)
-│       │
-│       ├── cpu_wrapper_TB.v
-│       │   Entrada - Testbench do wrapper da CPU
-│       │
-│       ├── datapath.v
-│       │   Entrada - Caminho de dados (datapath do processador)
-│       │
-│       ├── extend.v
-│       │   Entrada - Extensor de imediato (sign/zero extend)
-│       │
-│       ├── maindec.v
-│       │   Entrada - Decodificador principal de instruções
-│       │
-│       ├── Memory.v
-│       │   Entrada - Memória principal (instruções/dados)
-│       │
-│       ├── MemoryByteAddressable
-│       │   Entrada - Variante de memória byte-addressable (modelo alternativo)
-│       │    ├── byteEnableDecoder.v
-│       │    ├── memByteAddressable32WF.v
-│       │    ├── memory_write_first.v
-│       │    ├── memReadManager.v
-│       │    └── memTopo32LittleEndian.v
-│       │
-│       ├── mux.v
-│       │   Entrada - Multiplexador básico
-│       │
-│       ├── mux4.v
-│       │   Entrada - Multiplexador 4:1
-│       │
-│       ├── pc.v
-│       │   Entrada - Program Counter (PC)
-│       │
-│       ├── register.v
-│       │   Entrada - Registrador simples (flip-flop base)
-│       │
-│       ├── registerFile.v
-│       │   Entrada - Banco de registradores RISC-V
+│       └─── cpu_wrapper.sv
+│           Entrada - Versão SystemVerilog do wrapper (interface UVM/DPI)
 ├── images
 |   Imagens de documentação
 |
