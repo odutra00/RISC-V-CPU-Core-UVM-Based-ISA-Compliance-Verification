@@ -151,7 +151,7 @@ sintetizável do processador.
 
 # 📁 Estrutura esperada de diretórios
 project/
-├── [1;32massembly[0m (aqui você coloca o programa a ser testado em sua microarquitetura)
+├── 🟢 assembly/ (aqui você coloca o programa a ser testado em sua microarquitetura)
 │   ├── link.ld
 │   │   Entrada - Script do linker. Define organização da memória (text, data, stack, etc)
 │   │
@@ -181,51 +181,51 @@ project/
 │   │
 │   └── trace_pushBack.log
 │       Saída - Trace convertido para formato C++ (trace.push_back) para UVM/DPI
-├── dv
-│   ├── dpi
+├── dv/
+│   ├── dpi/
 │   │   ├── spike_dpi.cc
 │   │   │   Entrada - Modelo DPI em C++ (mock do Spike ou integração com trace)
 │   │   │
 │   │   └── spike_dpi_wrapper.sv
 │   │       Entrada - Wrapper SystemVerilog que conecta DUT ao DPI-C
 │   │
-│   ├── env
+│   ├── env/
 │   │   └── ref_env_pkg.sv
 │   │       Entrada - Ambiente UVM (environment package com agents, config e estrutura)
 │   │
-│   ├── if
+│   ├── if/
 │   │   └── commit_if.sv
 │   │       Entrada - Interface SystemVerilog para sinais de commit entre DUT e UVM
 │   │
-│   ├── include
+│   ├── include/
 │   │   └── riscv_defs.svh
 │   │       Entrada - Defines globais do RISC-V (opcode, width, macros, constantes)
 │   │
-│   └── scoreboard
+│   └── scoreboard/
 │       └── ref_scoreboard.sv
 │           Entrada - Scoreboard UVM que compara DUT vs referência (Spike/DPI)
 ├── filelist.f
 │   Entrada - Lista de arquivos RTL para o simulador (Xcelium/Questa/etc)
 │
-├── [1;31mhw[0m
-│   └── [1;31mrtl[0m - arquivos que implementam seu projeto
+├── 🔴 hw/
+│   └── 🔴 rtl/ - arquivos que implementam seu projeto
 │       │
 │       ├── cpu_wrapper.sv
 │       │    Entrada - Versão SystemVerilog do wrapper (interface UVM/DPI)
 │       └── Sua microarquitetura e todos os seus modules vão aqui. Serão encapsulados pelo wrapper,
 │               que irá expor os sinais devidos ao commit.    
 │
-├── images
+├── images/
 │   Imagens de documentação
 │
-└── [1;33mMakefile[0m (mude no make o programa assembly a ser testado  - SRC - e a isa utilizada - ASFLAGS e LDFLAGS correta para sua microarquitetura)
+└── 🟡 Makefile (mude no make o programa assembly a ser testado  - SRC - e a isa utilizada - ASFLAGS e LDFLAGS correta para sua microarquitetura)
     Entrada - Automação do fluxo (build, spike, trace, parser, UVM)
 ├── README.md
-├── sim
+├── sim/
 │   ├── riscv_tb_top.sv
 │   │   Entrada - Testbench top-level do ambiente UVM/SystemVerilog
 │   │
-└── tools
+└── tools/
     ├── regdiff.py
     │   Entrada - Ferramenta Python para comparação de registradores (DUT vs referência)
     │
@@ -234,9 +234,6 @@ project/
     │
     └── parser.py
         Entrada - Parser do trace do Spike → formato trace.push_back() UVM
-
-
-
 
 
 
