@@ -34,7 +34,7 @@ SPIKE   = /opt/riscv/bin/spike
 #################################################
 ASM_DIR = assembly
 
-SRC      = $(ASM_DIR)/program_lui_RAM_BASE_0x80000.asm   
+SRC      = $(ASM_DIR)/program.asm  
 LDFILE   = $(ASM_DIR)/link.ld  
 OBJ      = $(ASM_DIR)/main.o
 ELF      = $(ASM_DIR)/main.elf
