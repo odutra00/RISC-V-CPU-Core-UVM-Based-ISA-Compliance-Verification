@@ -14,6 +14,12 @@
     //!    escrita em registrador
     //!    escrita em memória
     //!    mudança de PC por branch/jump
+    //!Você deverá criar pipelinizes para expor os sinais de commit no estágio WB, se necessário.
+    //!Acesse os sinais do topo de sua microarquitetura pelo operador . (ex. DUT.sinal). Nunca crie pinos
+    //!que não estão na especificação para acessar os sinais. 
+    //!Lembre-se: A síntese será feita na sua microarquitetura e não nesse wrapper. Sendo assim, esse wrapper pode
+    //!ter tanta estrutura de apoio, sintetizável ou não, quanto necessário.
+    //!O Xrun tem como alvo o wrapper, o Genus tem como alvo sua microarquitetura topo.
 module cpu_wrapper #(
     parameter MEMORY_SIZE_PROG = 1024,
     parameter MEMORY_SIZE_RAM  = 1024,
@@ -62,7 +68,7 @@ module cpu_wrapper #(
     //! register-write commit only
     assign cmt.valid   = DUT.regFileWE_WB && (DUT.rd_WB != 5'd0);
     //! interface pede 64 bits
-    assign cmt.pc      = {{32{1'b0}}, (DUT.pc_WB_Arch - 32'd4)};
+    assign cmt.pc      = {{32{1'b0}}, (DUT.pc_WB_Arch - 32'd4)}; //subtrai 4 pois estou pegando o PC + 4 do JALR no WB mas o commit é apenas PC
     assign cmt.instr   = inst_MEM_commit;//pega do mem pq foram removidos registros EX/MEM para compensar escritas sincronas em regfile e dataMemory;
     assign cmt.rd_addr = DUT.rd_WB;
     assign cmt.rd_data = {{32{1'b0}}, DUT.writeBack_WB};
@@ -79,7 +85,11 @@ module cpu_wrapper #(
     //------------------------------------------------------------------
     //!Os dados necessários ao commit com o testbench uvm estarão em WB
     //!que é quando ocorre mudança de estado arquitetural (escrita no registerFile).
-    //!O que não estiver disponível em WB na cpu.v, pipelinaremos aqui no wrapper
+    //!O que não estiver disponível em WB na cpu.v, pipelinaremos aqui no wrapper.
+    //!Para a minha microarquitetura foi necessário pipelinizar apenas a instrução, que só 
+    //!está disponível no IF e ID. Na microarquitetura proposta pode ser necessário
+    //!pipelinizar o PC também. Aqui não foi necessário pois minha microarquitetura tem a JALR
+    //!implementada, o que faz com que PC + 4 esteja disponível em WB.
     //!/////////////////// ATENÇÃO //////////////////////////////////////
     //! Pipeline de commit assume ausência de stalls/forwarding no pipeline de cpu.v
     //! Bolhas devem ser inseridas manualmente com NOPs no assembly.

@@ -212,8 +212,11 @@ project/
 ├── hw
 │   └── rtl - arquivos que implementam seu projeto
 │       │
-│       └─── cpu_wrapper.sv
-│           Entrada - Versão SystemVerilog do wrapper (interface UVM/DPI)
+│       ├── cpu_wrapper.sv
+│       |    Entrada - Versão SystemVerilog do wrapper (interface UVM/DPI)
+|       ├── Sua microarquitetura e todos os seus modules vão aqui. Serão encapsulados pelo wrapper,
+|               que irá expor os sinais devidos ao commit.    
+|
 ├── images
 |   Imagens de documentação
 |
