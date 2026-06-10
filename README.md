@@ -171,10 +171,10 @@ project/
 │   ├── main.elf
 │   │   Saída - Executável final RISC-V gerado pelo linker (entrada do Spike/UVM)
 │   │
-│   ├── main_text.hex
+-│   ├── main_text.hex (sua microarquitetura - memoria de programa - faz readmemh deste arquivo)
 │   │   Saída - Memória de instruções (.text) em formato hex (1 instrução por linha)
 │   │
-│   ├── main_data.hex
+-│   ├── main_data.hex (sua microarquitetura - memoria de dados - faz readmemh deste arquivo)
 │   │   Saída - Memória de dados (.data) em formato hex (inicialização da RAM)
 │   │
 │   ├── trace.log
