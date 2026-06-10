@@ -205,7 +205,8 @@ project/
 │   └── scoreboard
 │       └── ref_scoreboard.sv
 │           Entrada - Scoreboard UVM que compara DUT vs referência (Spike/DPI)
-├── filelist.f
+|
+-├── filelist.f (Liste todos os arquivos de seu projeto)
 │   Entrada - Lista de arquivos RTL para o simulador (Xcelium/Questa/etc)
 │
 -├── hw
@@ -226,7 +227,7 @@ project/
 │   ├── riscv_tb_top.sv
 │   │   Entrada - Testbench top-level do ambiente UVM/SystemVerilog
 │   │
-└── tools
+└── tools (scripts python de suporte ao DPI)
     ├── regdiff.py
     │   Entrada - Ferramenta Python para comparação de registradores (DUT vs referência)
     │
