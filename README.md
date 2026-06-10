@@ -152,36 +152,36 @@ sintetizável do processador.
 # 📁 Estrutura esperada de diretórios
 ```diff
 project/
-+├── assembly (aqui você coloca o programa a ser testado em sua microarquitetura)
-+│   ├── link.ld
-+│   │   Entrada - Script do linker. Define organização da memória (text, data, stack, etc)
-+│   │
-+│   ├── program.asm
-+│   │   Entrada - Programa em assembly RISC-V a ser compilado e executado
-+│   │
-+│   ├── prog_bolhas_linker_inicializa_mem.asm
-+│   │   Entrada - Programa assembly com bolhas (NOPs) e inicialização de memória
-+│   │
-+│   ├── prog_bolhas_linker_inicializa_mem_JAL_JALR.asm
-+│   │   Entrada - Variante do programa usando JAL/JALR para controle de fluxo
-+│   │
-+│   ├── main.o
-+│   │   Saída - Código objeto gerado pelo assembler (binário intermediário)
-+│   │
-+│   ├── main.elf
-+│   │   Saída - Executável final RISC-V gerado pelo linker (entrada do Spike/UVM)
-+│   │
-+│   ├── main_text.hex
-+│   │   Saída - Memória de instruções (.text) em formato hex (1 instrução por linha)
-+│   │
-+│   ├── main_data.hex
-+│   │   Saída - Memória de dados (.data) em formato hex (inicialização da RAM)
-+│   │
-+│   ├── trace.log
-+│   │   Saída - Log bruto do Spike com commits de execução
-+│   │
-+│   └── trace_pushBack.log
-+│       Saída - Trace convertido para formato C++ (trace.push_back) para UVM/DPI
+├── assembly (aqui você coloca o programa a ser testado em sua microarquitetura)
+│   ├── link.ld
+│   │   Entrada - Script do linker. Define organização da memória (text, data, stack, etc)
+│   │
+-│   ├── program.asm (o make file já está apontando para esse programa.)
+│   │   Entrada - Programa em assembly RISC-V a ser compilado e executado
+│   │
+│   ├── prog_bolhas_linker_inicializa_mem.asm
+│   │   Entrada - Programa assembly com bolhas (NOPs) e inicialização de memória
+│   │
+│   ├── prog_bolhas_linker_inicializa_mem_JAL_JALR.asm
+│   │   Entrada - Variante do programa usando JAL/JALR para controle de fluxo
+│   │
+│   ├── main.o
+│   │   Saída - Código objeto gerado pelo assembler (binário intermediário)
+│   │
+│   ├── main.elf
+│   │   Saída - Executável final RISC-V gerado pelo linker (entrada do Spike/UVM)
+│   │
+│   ├── main_text.hex
+│   │   Saída - Memória de instruções (.text) em formato hex (1 instrução por linha)
+│   │
+│   ├── main_data.hex
+│   │   Saída - Memória de dados (.data) em formato hex (inicialização da RAM)
+│   │
+│   ├── trace.log
+│   │   Saída - Log bruto do Spike com commits de execução
+│   │
+│   └── trace_pushBack.log
+│       Saída - Trace convertido para formato C++ (trace.push_back) para UVM/DPI
 ├── dv
 │   ├── dpi
 │   │   ├── spike_dpi.cc
