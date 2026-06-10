@@ -214,19 +214,22 @@ project/
 -│       │
 -│       ├── cpu_wrapper.sv
 -│       │    Entrada - Versão SystemVerilog do wrapper (interface UVM/DPI)
--│       └── Sua microarquitetura e todos os seus modules vão aqui. Serão encapsulados pelo wrapper,
--│               que irá expor os sinais devidos ao commit.    
+-│       └── Sua microarquitetura e todos os seus modules vão aqui. Serão encapsulados 
+-│              pelo wrapper, que irá expor os sinais devidos ao commit.    
 │
 ├── images
 │   Imagens de documentação
 │
--└── Makefile (mude no make o programa assembly a ser testado  - SRC - e a isa utilizada - ASFLAGS e LDFLAGS correta para sua microarquitetura)
--    Entrada - Automação do fluxo (build, spike, trace, parser, UVM)
+-└── Makefile (mude no make o programa assembly a ser testado  - SRC - 
+-|   e a isa utilizada - ASFLAGS e LDFLAGS correta para sua microarquitetura)
+-|    Entrada - Automação do fluxo (build, spike, trace, parser, UVM)
+|
 ├── README.md
+|
 ├── sim
-│   ├── riscv_tb_top.sv
-│   │   Entrada - Testbench top-level do ambiente UVM/SystemVerilog
-│   │
+│   └── riscv_tb_top.sv
+│      Entrada - Testbench top-level do ambiente UVM/SystemVerilog
+│   
 └── tools (scripts python de suporte ao DPI)
     ├── regdiff.py
     │   Entrada - Ferramenta Python para comparação de registradores (DUT vs referência)
